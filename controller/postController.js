@@ -166,9 +166,7 @@ exports.commentPost = async (req, res) => {
         const postId = req.params.id;
 
         const {text}=req.body
-       
-
-      // const comment = await postModel.create(req.body)
+    
       const blog = await postModel.findById(postId)
         
         if(!blog){
@@ -251,27 +249,6 @@ exports.deleteComment = async (req, res) => {
             message: `Comment deleted successfully`,
             data: deletedComment,
         });
-
-            // const postId = req.params.postId
-            // const commentId = req.params.commentId
-    
-            // const post = await postModel.findById(postId)
-            // const comment = await postModel.findByIdAndDelete(commentId)
-    
-            // if(!post){
-            //     return res.status(404).json({
-            //         message: `No post with this ID available`
-            //     })
-            // }
-            // if(!comment){
-            //     return res.status(404).json({
-            //         message: `Comment ID not found to be deleted`
-            //     })
-            // }
-            // res.status(200).json({
-            //     message: `Comment deleted successfully`,
-            //     data: comment
-            // })
     
         }catch(err){
             res.status(500).json({
